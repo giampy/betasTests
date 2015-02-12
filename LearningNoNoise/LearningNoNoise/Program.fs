@@ -31,8 +31,8 @@ module test1 =
     printfn "Real 0: %A\n" PostTheta0
     printfn "Real 1: %A\n" PostTheta1
     
-    let raw=[| (createGraph PostTheta0 0.0 1.0 0.01 "Beta 0 No Noise" Color.Black);
-               (createGraph PostTheta1 0.0 1.0 0.01 "Beta 1 No Noise" Color.Red) 
+    let raw=[| (createGraph PostTheta0 0.0 1.0 0.01 "Beta  No Noise" Color.Black);
+               (createGraph PostTheta1 0.0 1.0 0.01 "Beta  No Noise" Color.Red) 
             |]
 
     let A1=Chart.Combine raw

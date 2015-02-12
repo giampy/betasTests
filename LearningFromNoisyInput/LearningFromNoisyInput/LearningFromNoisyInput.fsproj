@@ -38,6 +38,10 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FnuPlot">
+      <HintPath>..\packages\FnuPlot.0.1.0-beta\lib\net40\FnuPlot.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="FSharp.Charting">
       <HintPath>C:\Users\GianPietro\Desktop\test1\test1\bin\Debug\FSharp.Charting.dll</HintPath>
     </Reference>
@@ -71,6 +75,7 @@
     <None Include="App.config" />
     <Compile Include="Utils.fs" />
     <Compile Include="Program.fs" />
+    <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>

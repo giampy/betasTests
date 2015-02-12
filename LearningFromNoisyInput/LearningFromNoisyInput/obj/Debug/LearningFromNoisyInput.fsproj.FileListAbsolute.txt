@@ -23,3 +23,5 @@ c:\users\gianpietro\documents\visual studio 2013\Projects\LearningFromNoisyInput
 c:\users\gianpietro\documents\visual studio 2013\Projects\LearningFromNoisyInput\LearningFromNoisyInput\obj\Debug\LearningFromNoisyInput.exe
 c:\users\gianpietro\documents\visual studio 2013\Projects\LearningFromNoisyInput\LearningFromNoisyInput\obj\Debug\LearningFromNoisyInput.pdb
 c:\users\gianpietro\documents\visual studio 2013\Projects\LearningFromNoisyInput\LearningFromNoisyInput\obj\Debug\LearningFromNoisyInput.fsprojResolveAssemblyReference.cache
+C:\Users\GianPietro\documents\visual studio 2013\Projects\LearningFromNoisyInput\LearningFromNoisyInput\bin\Debug\FnuPlot.dll
+C:\Users\GianPietro\documents\visual studio 2013\Projects\LearningFromNoisyInput\LearningFromNoisyInput\bin\Debug\FnuPlot.pdb

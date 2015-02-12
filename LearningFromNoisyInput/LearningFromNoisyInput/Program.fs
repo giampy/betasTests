@@ -51,6 +51,8 @@
         let A3=Chart.Combine draw1
         let a2=A2.ShowChart()
         let a3=A3.ShowChart() *)
+
+
         let histo0 = [|for j in (Seq.distinct arrayBeta0) -> (j, count j arrayBeta0)|]
         let histo1 = [|for j in (Seq.distinct arrayBeta1) -> (j, count j arrayBeta1)|]
 
@@ -58,7 +60,22 @@
         printfn "******************************"
         prettyPrintHisto histo1
 
-        
+        open FnuPlot
+        open System.Drawing
+
+        let path="C:\\Program Files (x86)\\gnuplot\\bin\\gnuplot.exe"
+        let gp0 = new GnuPlot(path)
+
+        let tit0 = [for  ((b, c)) in histo0 -> ( (b.TrueCount,b.FalseCount).ToString() )] 
+        let tit1 = [for  ((b, c)) in histo1 -> ( (b.TrueCount,b.FalseCount).ToString() )] 
+        gp0.Set ( style = Style(Solid), titles = Titles(x = tit0, xrotate = -90) )
+        gp0.SendCommand("set term wxt title 'DB0 NoisyInput'")
+        let gp1 = new GnuPlot(path)
+        gp1.Set ( style = Style(Solid), titles = Titles(x = tit1, xrotate = -90) )
+        gp1.SendCommand("set term wxt title 'DB1 NoisyInput'")
+// Create a chart combining several histograms
+        Series.Histogram ( data = [|for  ((b, c)) in histo0 -> (float c)|])  |> gp0.Plot
+        Series.Histogram ( data = [|for  ((b, c)) in histo1 -> (float c)|])  |> gp1.Plot
         [<EntryPoint>]
         let main argv = 
             Application.Run()

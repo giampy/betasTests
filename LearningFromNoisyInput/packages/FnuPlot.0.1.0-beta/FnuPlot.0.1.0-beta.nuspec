@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <id>FnuPlot</id>
+    <version>0.1.0-beta</version>
+    <authors>Tomas Petricek</authors>
+    <owners>Tomas Petricek</owners>
+    <licenseUrl>http://github.com/fsprojects/FnuPlot/blob/master/LICENSE.txt</licenseUrl>
+    <projectUrl>http://fsprojects.github.com/FnuPlot</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/fsprojects/ProjectScaffold/master/docs/files/img/logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>FnuPlot is a simple F# wrapper for the gnuplot charting library. It is cross-platform (Mac, Linux and Windows) and lets you create publication-quality charts</description>
+    <summary>An F# wrapper for the gnuplot charting library</summary>
+    <releaseNotes>Replaced Series.Lines, Series.XY, Series.TimeY, and Series.Function with a single overloaded Series.Lines which accepts any of the above data types. **Important note:** This will break code which used the old constructors. To fix your legacy code, simply replace all usages of the above constructors with Series.Lines
+Added Series.Points and Series.Impulses constructors. These work exactly like Series.Lines, but instead of plotting a continuous line they plot the datapoints as isolated points or isolated thin bars, respectively.</releaseNotes>
+    <copyright>Copyright 2013</copyright>
+    <tags>gnuplot fsharp f# charting chart</tags>
+  </metadata>
+</package>

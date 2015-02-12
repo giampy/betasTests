@@ -22,3 +22,5 @@ C:\Users\GianPietro\Documents\Visual Studio 2013\Projects\LearningBeforeNoising\
 C:\Users\GianPietro\Documents\Visual Studio 2013\Projects\LearningBeforeNoising\LearningBeforeNoising\obj\Debug\LearningBeforeNoising.exe
 C:\Users\GianPietro\Documents\Visual Studio 2013\Projects\LearningBeforeNoising\LearningBeforeNoising\obj\Debug\LearningBeforeNoising.pdb
 C:\Users\GianPietro\Documents\Visual Studio 2013\Projects\LearningBeforeNoising\LearningBeforeNoising\obj\Debug\LearningBeforeNoising.fsprojResolveAssemblyReference.cache
+C:\Users\GianPietro\documents\visual studio 2013\Projects\LearningBeforeNoising\LearningBeforeNoising\bin\Debug\FnuPlot.dll
+C:\Users\GianPietro\documents\visual studio 2013\Projects\LearningBeforeNoising\LearningBeforeNoising\bin\Debug\FnuPlot.pdb

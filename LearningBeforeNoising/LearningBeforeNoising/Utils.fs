@@ -12,13 +12,13 @@
     let betaPdf x a b=
         ((Math.Pow(x, a-1.0)*Math.Pow(1.0-x, b-1.0) )/(betaf a b))
 
-    let createGraph (theta:Beta) (init:float) (end_:float) (step:float) (title: String) (c: System.Drawing.Color) = 
+    let createGraph ((a, b):(float*float)) (init:float) (end_:float) (step:float) (title: String) (c: System.Drawing.Color) = 
                                     Chart.Line([
                                                     for j in init .. (step) .. end_ -> 
                                                                 (j, 
                                                                   (betaPdf    j
-                                                                    ((theta.TrueCount))  
-                                                                    ((theta.FalseCount)) 
+                                                                    ((a))  
+                                                                    ((b)) 
                                             )
                                             )
                                     ],Title=title,Color=c).WithYAxis(Max=8.0 )
@@ -49,11 +49,11 @@
     let range N aPrior bPrior= [|for a in aPrior .. aPrior + N -> (a, N + aPrior + bPrior - a ) |]
 
     let computeK (a0, b0) epsilon sensitivity N aPrior bPrior=   
-        Array.fold (fun acc (a1, b1) -> acc + Math.Exp((score a0 b0 a1 b1) * (2.0/(sensitivity*epsilon)) )) 0.0 (range N aPrior bPrior)
+        Array.fold (fun acc (a1, b1) -> acc + Math.Exp((score a0 b0 a1 b1) * epsilon )) 0.0 (range N aPrior bPrior)
 
     let computeDistribution trueCount falseCount epsilon sensitivity N aPrior bPrior = 
         [|for (x,y) in (range (float N) aPrior bPrior) -> ((x,y), 
-                                           (Math.Exp((score trueCount falseCount x y) * (2.0/                        (sensitivity*epsilon)) ) ) / computeK (trueCount, falseCount) epsilon sensitivity N aPrior bPrior)|]
+                                           (Math.Exp((score trueCount falseCount x y) * epsilon ) ) / computeK (trueCount, falseCount) epsilon sensitivity N aPrior bPrior)|]
     
     
     let rec findValueInIntervals (intervals:float[]) v index:int=
@@ -65,7 +65,7 @@
      else  
         printfn "Should never happen: %f %A %d\n" v intervals index
         0
-
+        
     //used to count element in arrays to make histograms
     let count a v=  (Array.filter (fun x -> x = a) v).Length
 
@@ -77,3 +77,4 @@
         for elem in 1 .. count do
             printf "+"
         printfn ""
+
