@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <Compile Include="Data.fs" />
     <Compile Include="Utils.fs" />
     <Compile Include="Program.fs" />
     <None Include="packages.config" />
