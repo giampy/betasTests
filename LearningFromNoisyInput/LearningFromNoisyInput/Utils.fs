@@ -5,6 +5,7 @@ open FSharp.Charting
 open System
 open FnuPlot
 open System.Drawing
+open Data
 
 let gamma n= SpecialFunctions.Gamma n
 
@@ -26,7 +27,7 @@ let createGraph (theta:Beta) (init:float) (end_:float) (step:float) (title: Stri
                                     ],Title=title,Color=c).WithYAxis(Max=8.0 )
 open MicrosoftResearch.Infer.Fun.FSharp.Syntax
 
-let expMech D epsilon constant = [|for i in D -> if i=true then (random(Bernoulli(Math.Exp(epsilon/2.0)/(constant)))) 
+let expMech D epsilon = [|for i in D -> if i=true then (random(Bernoulli(Math.Exp(epsilon/2.0)/(constant)))) 
                                                     else (random(Bernoulli(1.0/(constant))))|]
 
 let count a v=  (Array.filter (fun x -> x = a) v).Length
