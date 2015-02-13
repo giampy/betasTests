@@ -3,6 +3,7 @@
     open MathNet.Numerics
     open FSharp.Charting
     open System
+    type DistrBeta=array<float*float>
     let sensitivity=Math.Sqrt(1.0-(Math.PI/4.0))
     //let sensitivity=Math.Sqrt 2.0 //if we use euclidean distance
     let eps= 2.0
@@ -47,8 +48,6 @@
 
 
 
-    let score iA iB oA oB=(-(HellingerDistance iA iB oA oB))
-
     let range N aPrior bPrior= [|for a in aPrior .. aPrior + N -> (a, N + aPrior + bPrior - a ) |]
 
     let computeK (a0, b0) epsilon sensitivity N aPrior bPrior=   
@@ -82,9 +81,9 @@
         printfn ""
     
     let rnd = System.Random() 
-
-    let expMech (b: Beta) (eps:float) (sens:float) (N:int) (aPrior:float) (bPrior:float) =
-        let distr=computeDistribution b.TrueCount b.FalseCount eps sens (float N) aPrior bPrior in
+    let expMech (b: Beta) (eps:float) (q: float-> float-> float-> float -> float) ((N: int), (aPrior: float), (bPrior: float)) =
+    //if q = HD then
+        let distr=computeDistribution b.TrueCount b.FalseCount eps sensitivity (float N) aPrior bPrior in
         let samplingArray = [|for index in 0 .. distr.Length  -> 
                                 Array.fold (fun acc ((a,b), v) -> acc+v) 0.0 (Array.sub distr 0 index)
                             |] in
@@ -92,6 +91,7 @@
             let index=(findValueInIntervals samplingArray value0 0) in
                 let (a,b)= (range (float N) aPrior bPrior).[index] in 
                         ((float a),(float b))
+
     open FSharp.Charting
     open FnuPlot
     open System.Drawing
